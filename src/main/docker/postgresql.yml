@@ -1,0 +1,12 @@
+version: '2'
+services:
+  tec2-postgresql:
+    image: postgres:12.3
+    # volumes:
+    #     - ~/volumes/jhipster/TEC2/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=TEC2
+      - POSTGRES_PASSWORD=
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    ports:
+      - 5432:5432
