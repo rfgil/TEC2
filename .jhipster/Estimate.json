@@ -1,0 +1,131 @@
+{
+  "name": "Estimate",
+  "fields": [
+    {
+      "fieldName": "number",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "min"
+      ],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "version",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "min"
+      ],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "EstimateStatus",
+      "fieldValues": "Pending,Accepted,Changed,NotAccepted,Completed"
+    },
+    {
+      "fieldName": "customerId",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "reference",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "maturity",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "expirationDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "profitMargin",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": [
+        "min",
+        "max"
+      ],
+      "fieldValidateRulesMin": "0",
+      "fieldValidateRulesMax": "1"
+    },
+    {
+      "fieldName": "commission",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": [
+        "min",
+        "max"
+      ],
+      "fieldValidateRulesMin": "0",
+      "fieldValidateRulesMax": "1"
+    },
+    {
+      "fieldName": "discount",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": [
+        "min",
+        "max"
+      ],
+      "fieldValidateRulesMin": "0",
+      "fieldValidateRulesMax": "1"
+    },
+    {
+      "fieldName": "deliveryMethodId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "deliveryDatetime",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "notes",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "project",
+      "otherEntityRelationshipName": "estimate",
+      "relationshipName": "project",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "estimate",
+      "otherEntityRelationshipName": "rootEstimate",
+      "relationshipName": "versions"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "workItem",
+      "otherEntityRelationshipName": "estimate",
+      "relationshipName": "workItems"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "estimate",
+      "otherEntityRelationshipName": "versions",
+      "relationshipName": "rootEstimate",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210203113604",
+  "entityTableName": "estimate",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

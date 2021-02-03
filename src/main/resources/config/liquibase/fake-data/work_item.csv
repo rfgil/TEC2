@@ -1,0 +1,11 @@
+id;quantity;reference;deadline;status;type;estimated_employee_hours;estimated_machine_hours
+1;1917;bi-directional Frozen;2021-02-02;Done;Task;28199;45625
+2;31579;Generic Cotton Cheese pixel Ergonomic Metal Car;2021-02-03;Done;Task;73107;64063
+3;99122;Electronics Customizable;2021-02-02;InProgress;Task;6790;64047
+4;73544;maximize Incredible;2021-02-03;InProgress;Task;13423;16098
+5;92074;Identity e-tailers solid state;2021-02-03;InProgress;Task;57218;29640
+6;90671;cross-platform Adaptive;2021-02-03;Done;Task;86665;20315
+7;95567;Bacon;2021-02-02;ToDo;Task;96347;28453
+8;30252;Centralized;2021-02-03;Done;Task;12878;78679
+9;41496;Organized withdrawal;2021-02-03;InProgress;Task;8556;1090
+10;12888;Money Market Account Implemented explicit;2021-02-02;ToDo;Task;50491;76497

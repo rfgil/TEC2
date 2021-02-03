@@ -1,0 +1,10 @@
+{
+  "tec2App": {
+    "WorkItemStatus": {
+      "null": "",
+      "ToDo": "ToDo",
+      "InProgress": "InProgress",
+      "Done": "Done"
+    }
+  }
+}

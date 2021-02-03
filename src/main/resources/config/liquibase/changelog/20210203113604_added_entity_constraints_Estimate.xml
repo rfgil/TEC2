@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Estimate.
+    -->
+    <changeSet id="20210203113604-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="project_id"
+                                 baseTableName="estimate"
+                                 constraintName="fk_estimate_project_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="project"/>
+
+        <addForeignKeyConstraint baseColumnNames="root_estimate_id"
+                                 baseTableName="estimate"
+                                 constraintName="fk_estimate_root_estimate_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="estimate"/>
+
+    </changeSet>
+</databaseChangeLog>

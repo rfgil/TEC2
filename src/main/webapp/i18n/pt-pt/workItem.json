@@ -1,0 +1,31 @@
+{
+  "tec2App": {
+    "workItem": {
+      "home": {
+        "title": "Work Items",
+        "createLabel": "Criar novo(a) Work Item",
+        "createOrEditLabel": "Criar ou editar Work Item",
+        "notFound": "Nenhum Work Items encontrado"
+      },
+      "created": "Um novo Work Item foi criado com o identificador {{ param }}",
+      "updated": "Work Item com identificador {{ param }} foi actualizado",
+      "deleted": "Work Item com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Work Item {{ id }}?"
+      },
+      "detail": {
+        "title": "Work Item"
+      },
+      "quantity": "Quantity",
+      "reference": "Reference",
+      "deadline": "Deadline",
+      "status": "Status",
+      "type": "Type",
+      "estimatedEmployeeHours": "Estimated Employee Hours",
+      "estimatedMachineHours": "Estimated Machine Hours",
+      "assignedUser": "Assigned User",
+      "estimate": "Estimate",
+      "project": "Project"
+    }
+  }
+}

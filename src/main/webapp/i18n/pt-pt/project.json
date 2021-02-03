@@ -1,0 +1,30 @@
+{
+  "tec2App": {
+    "project": {
+      "home": {
+        "title": "Projects",
+        "createLabel": "Criar novo(a) Project",
+        "createOrEditLabel": "Criar ou editar Project",
+        "notFound": "Nenhum Projects encontrado"
+      },
+      "created": "Um novo Project foi criado com o identificador {{ param }}",
+      "updated": "Project com identificador {{ param }} foi actualizado",
+      "deleted": "Project com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Project {{ id }}?"
+      },
+      "detail": {
+        "title": "Project"
+      },
+      "number": "Number",
+      "acceptanceDate": "Acceptance Date",
+      "shippingDate": "Shipping Date",
+      "paidDate": "Paid Date",
+      "closeDate": "Close Date",
+      "extraCosts": "Extra Costs",
+      "extraCostsDescription": "Extra Costs Description",
+      "workItems": "Work Items",
+      "estimate": "Estimate"
+    }
+  }
+}

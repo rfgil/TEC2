@@ -1,0 +1,12 @@
+{
+  "tec2App": {
+    "EstimateStatus": {
+      "null": "",
+      "Pending": "Pending",
+      "Accepted": "Accepted",
+      "Changed": "Changed",
+      "NotAccepted": "NotAccepted",
+      "Completed": "Completed"
+    }
+  }
+}

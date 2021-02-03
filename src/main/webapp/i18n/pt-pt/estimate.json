@@ -1,0 +1,39 @@
+{
+  "tec2App": {
+    "estimate": {
+      "home": {
+        "title": "Estimates",
+        "createLabel": "Criar novo(a) Estimate",
+        "createOrEditLabel": "Criar ou editar Estimate",
+        "notFound": "Nenhum Estimates encontrado"
+      },
+      "created": "Um novo Estimate foi criado com o identificador {{ param }}",
+      "updated": "Estimate com identificador {{ param }} foi actualizado",
+      "deleted": "Estimate com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Estimate {{ id }}?"
+      },
+      "detail": {
+        "title": "Estimate"
+      },
+      "number": "Number",
+      "version": "Version",
+      "status": "Status",
+      "customerId": "Customer Id",
+      "reference": "Reference",
+      "date": "Date",
+      "maturity": "Maturity",
+      "expirationDate": "Expiration Date",
+      "profitMargin": "Profit Margin",
+      "commission": "Commission",
+      "discount": "Discount",
+      "deliveryMethodId": "Delivery Method Id",
+      "deliveryDatetime": "Delivery Datetime",
+      "notes": "Notes",
+      "project": "Project",
+      "versions": "Versions",
+      "workItems": "Work Items",
+      "rootEstimate": "Root Estimate"
+    }
+  }
+}

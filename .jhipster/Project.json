@@ -1,0 +1,63 @@
+{
+  "name": "Project",
+  "fields": [
+    {
+      "fieldName": "number",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "min"
+      ],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "acceptanceDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "shippingDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "paidDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "closeDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "extraCosts",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "extraCostsDescription",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "workItem",
+      "otherEntityRelationshipName": "project",
+      "relationshipName": "workItems"
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "estimate",
+      "otherEntityRelationshipName": "project",
+      "relationshipName": "estimate",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20210203113704",
+  "entityTableName": "project",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

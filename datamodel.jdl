@@ -1,0 +1,75 @@
+
+entity Estimate {
+    number Integer min(0),
+    version Integer min(0),
+    status EstimateStatus,
+    
+    customerId Integer required,
+    reference String,
+    date LocalDate,
+    
+    maturity Integer, // ~Prazo de pagamento. Verificar se faz sentido ser um ID para uma tabela diferente como o moloni
+    expirationDate LocalDate,
+    profitMargin BigDecimal min(0) max(1),
+    commission BigDecimal min(0) max(1),
+  	discount BigDecimal min(0) max(1),
+
+	deliveryMethodId Integer
+	deliveryDatetime LocalDate
+    
+    notes String,
+}
+
+entity Project {
+    // Issued Project
+    number Integer min(0),
+    acceptanceDate LocalDate,
+    shippingDate LocalDate,
+    paidDate LocalDate,
+    closeDate LocalDate,
+    extraCosts BigDecimal,
+    extraCostsDescription String,
+    // status ou isDone
+}
+
+
+
+entity WorkItem {
+    quantity Integer min(0),
+    reference String,
+    deadline LocalDate
+
+    status WorkItemStatus,
+    type WorkItemType,
+
+    estimatedEmployeeHours Integer min(0),
+    estimatedMachineHours Integer min(0),
+    
+    //visualAspect Quality,
+    //dimensionalControl OKNOK,
+    //design OKNOK
+}
+
+
+enum EstimateStatus {
+	Pending, Accepted, Changed, NotAccepted, Completed
+}
+
+enum WorkItemStatus {
+	ToDo, InProgress, Done
+}
+
+enum WorkItemType {
+	Task
+}
+
+relationship OneToMany {
+	Estimate{versions} to Estimate{rootEstimate},
+    Estimate{workItems} to WorkItem{estimate},
+    Project{workItems} to WorkItem{project}
+}
+
+relationship OneToOne {
+	Estimate{project} to Project{estimate}
+    WorkItem{assignedUser} to User
+}

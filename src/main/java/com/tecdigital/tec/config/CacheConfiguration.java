@@ -51,6 +51,12 @@ public class CacheConfiguration {
             createCache(cm, com.tecdigital.tec.domain.User.class.getName());
             createCache(cm, com.tecdigital.tec.domain.Authority.class.getName());
             createCache(cm, com.tecdigital.tec.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.tecdigital.tec.domain.Estimate.class.getName());
+            createCache(cm, com.tecdigital.tec.domain.Estimate.class.getName() + ".versions");
+            createCache(cm, com.tecdigital.tec.domain.Estimate.class.getName() + ".workItems");
+            createCache(cm, com.tecdigital.tec.domain.Project.class.getName());
+            createCache(cm, com.tecdigital.tec.domain.Project.class.getName() + ".workItems");
+            createCache(cm, com.tecdigital.tec.domain.WorkItem.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
