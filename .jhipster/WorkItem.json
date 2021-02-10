@@ -54,6 +54,12 @@
       "ownerSide": true
     },
     {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "workItem",
+      "otherEntityRelationshipName": "parentWorkItem",
+      "relationshipName": "childWorkItems"
+    },
+    {
       "relationshipType": "many-to-one",
       "otherEntityName": "estimate",
       "otherEntityRelationshipName": "workItems",
@@ -65,6 +71,13 @@
       "otherEntityName": "project",
       "otherEntityRelationshipName": "workItems",
       "relationshipName": "project",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "workItem",
+      "otherEntityRelationshipName": "childWorkItems",
+      "relationshipName": "parentWorkItem",
       "otherEntityField": "id"
     }
   ],

@@ -57,6 +57,7 @@ public class CacheConfiguration {
             createCache(cm, com.tecdigital.tec.domain.Project.class.getName());
             createCache(cm, com.tecdigital.tec.domain.Project.class.getName() + ".workItems");
             createCache(cm, com.tecdigital.tec.domain.WorkItem.class.getName());
+            createCache(cm, com.tecdigital.tec.domain.WorkItem.class.getName() + ".childWorkItems");
             // jhipster-needle-ehcache-add-entry
         };
     }

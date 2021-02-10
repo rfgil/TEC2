@@ -9,6 +9,8 @@ import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 import com.tecdigital.tec.domain.enumeration.WorkItemStatus;
 
@@ -59,6 +61,10 @@ public class WorkItem implements Serializable {
     @JoinColumn(unique = true)
     private User assignedUser;
 
+    @OneToMany(mappedBy = "parentWorkItem")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    private Set<WorkItem> childWorkItems = new HashSet<>();
+
     @ManyToOne
     @JsonIgnoreProperties(value = "workItems", allowSetters = true)
     private Estimate estimate;
@@ -66,6 +72,10 @@ public class WorkItem implements Serializable {
     @ManyToOne
     @JsonIgnoreProperties(value = "workItems", allowSetters = true)
     private Project project;
+
+    @ManyToOne
+    @JsonIgnoreProperties(value = "childWorkItems", allowSetters = true)
+    private WorkItem parentWorkItem;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -180,6 +190,31 @@ public class WorkItem implements Serializable {
         this.assignedUser = user;
     }
 
+    public Set<WorkItem> getChildWorkItems() {
+        return childWorkItems;
+    }
+
+    public WorkItem childWorkItems(Set<WorkItem> workItems) {
+        this.childWorkItems = workItems;
+        return this;
+    }
+
+    public WorkItem addChildWorkItems(WorkItem workItem) {
+        this.childWorkItems.add(workItem);
+        workItem.setParentWorkItem(this);
+        return this;
+    }
+
+    public WorkItem removeChildWorkItems(WorkItem workItem) {
+        this.childWorkItems.remove(workItem);
+        workItem.setParentWorkItem(null);
+        return this;
+    }
+
+    public void setChildWorkItems(Set<WorkItem> workItems) {
+        this.childWorkItems = workItems;
+    }
+
     public Estimate getEstimate() {
         return estimate;
     }
@@ -204,6 +239,19 @@ public class WorkItem implements Serializable {
 
     public void setProject(Project project) {
         this.project = project;
+    }
+
+    public WorkItem getParentWorkItem() {
+        return parentWorkItem;
+    }
+
+    public WorkItem parentWorkItem(WorkItem workItem) {
+        this.parentWorkItem = workItem;
+        return this;
+    }
+
+    public void setParentWorkItem(WorkItem workItem) {
+        this.parentWorkItem = workItem;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

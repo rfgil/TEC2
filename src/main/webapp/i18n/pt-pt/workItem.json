@@ -24,8 +24,10 @@
       "estimatedEmployeeHours": "Estimated Employee Hours",
       "estimatedMachineHours": "Estimated Machine Hours",
       "assignedUser": "Assigned User",
+      "childWorkItems": "Child Work Items",
       "estimate": "Estimate",
-      "project": "Project"
+      "project": "Project",
+      "parentWorkItem": "Parent Work Item"
     }
   }
 }

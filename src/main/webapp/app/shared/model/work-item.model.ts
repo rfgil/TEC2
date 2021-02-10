@@ -15,8 +15,10 @@ export interface IWorkItem {
   estimatedEmployeeHours?: number;
   estimatedMachineHours?: number;
   assignedUser?: IUser;
+  childWorkItems?: IWorkItem[];
   estimate?: IEstimate;
   project?: IProject;
+  parentWorkItem?: IWorkItem;
 }
 
 export const defaultValue: Readonly<IWorkItem> = {};
