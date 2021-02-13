@@ -10,6 +10,8 @@ import { getEntity } from './estimate.reducer';
 import { IEstimate } from 'app/shared/model/estimate.model';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 
+import WorkItemTable from 'app/entities/work-item/work-item-table'
+
 export interface IEstimateDetailProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
 export const EstimateDetail = (props: IEstimateDetailProps) => {
@@ -126,6 +128,9 @@ export const EstimateDetail = (props: IEstimateDetailProps) => {
           </dt>
           <dd>{estimateEntity.rootEstimate ? estimateEntity.rootEstimate.id : ''}</dd>
         </dl>
+
+        <WorkItemTable workItems={estimateEntity.workItems} save={() => console.log("save")}></WorkItemTable>
+
         <Button tag={Link} to="/estimate" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}
           <span className="d-none d-md-inline">
