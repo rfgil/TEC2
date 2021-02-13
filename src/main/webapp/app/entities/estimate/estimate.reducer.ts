@@ -12,6 +12,7 @@ export const ACTION_TYPES = {
   CREATE_ESTIMATE: 'estimate/CREATE_ESTIMATE',
   UPDATE_ESTIMATE: 'estimate/UPDATE_ESTIMATE',
   DELETE_ESTIMATE: 'estimate/DELETE_ESTIMATE',
+  RESET_ESTIMATE: 'estimate/RESET_ESTIMATE',
   RESET: 'estimate/RESET',
 };
 
@@ -90,6 +91,12 @@ export default (state: EstimateState = initialState, action): EstimateState => {
       return {
         ...initialState,
       };
+    case ACTION_TYPES.RESET_ESTIMATE:
+      return {
+        ...state,
+        entity: {},
+      };
+
     default:
       return state;
   }
@@ -141,4 +148,8 @@ export const deleteEntity: ICrudDeleteAction<IEstimate> = id => async dispatch =
 
 export const reset = () => ({
   type: ACTION_TYPES.RESET,
+});
+
+export const resetEntity = () => ({
+  type: ACTION_TYPES.RESET_ESTIMATE,
 });

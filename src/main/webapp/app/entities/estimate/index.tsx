@@ -11,12 +11,14 @@ import EstimateDeleteDialog from './estimate-delete-dialog';
 const Routes = ({ match }) => (
   <>
     <Switch>
-      <ErrorBoundaryRoute exact path={`${match.url}/new`} component={EstimateUpdate} />
-      <ErrorBoundaryRoute exact path={`${match.url}/:id/edit`} component={EstimateUpdate} />
-      <ErrorBoundaryRoute exact path={`${match.url}/:id`} component={EstimateDetail} />
+      <ErrorBoundaryRoute exact path={`${match.url}/:id([0-9]+)`} component={EstimateDetail} />
       <ErrorBoundaryRoute path={match.url} component={Estimate} />
     </Switch>
-    <ErrorBoundaryRoute exact path={`${match.url}/:id/delete`} component={EstimateDeleteDialog} />
+    <Switch>
+      <ErrorBoundaryRoute path={`${match.url}/new`} component={EstimateUpdate} />
+      <ErrorBoundaryRoute exact path={`${match.url}/:id([0-9]+)/delete`} component={EstimateDeleteDialog} />
+      <ErrorBoundaryRoute exact path={`${match.url}/:id([0-9]+)/edit`} component={EstimateUpdate} />
+    </Switch>
   </>
 );
 
