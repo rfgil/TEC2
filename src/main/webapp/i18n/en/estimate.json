@@ -33,7 +33,7 @@
       "project": "Project",
       "versions": "Versions",
       "workItems": "Work Items",
-      "rootEstimate": "Root Estimate"
+      "estimate": "Estimate"
     }
   }
 }

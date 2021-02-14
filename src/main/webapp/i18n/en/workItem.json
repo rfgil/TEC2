@@ -27,7 +27,7 @@
       "childWorkItems": "Child Work Items",
       "estimate": "Estimate",
       "project": "Project",
-      "parentWorkItem": "Parent Work Item"
+      "workItem": "Work Item"
     }
   }
 }

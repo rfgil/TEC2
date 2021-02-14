@@ -61,7 +61,7 @@ public class WorkItem implements Serializable {
     @JoinColumn(unique = true)
     private User assignedUser;
 
-    @OneToMany(mappedBy = "parentWorkItem")
+    @OneToMany(mappedBy = "workItem")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<WorkItem> childWorkItems = new HashSet<>();
 
@@ -75,7 +75,7 @@ public class WorkItem implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "childWorkItems", allowSetters = true)
-    private WorkItem parentWorkItem;
+    private WorkItem workItem;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -201,13 +201,13 @@ public class WorkItem implements Serializable {
 
     public WorkItem addChildWorkItems(WorkItem workItem) {
         this.childWorkItems.add(workItem);
-        workItem.setParentWorkItem(this);
+        workItem.setWorkItem(this);
         return this;
     }
 
     public WorkItem removeChildWorkItems(WorkItem workItem) {
         this.childWorkItems.remove(workItem);
-        workItem.setParentWorkItem(null);
+        workItem.setWorkItem(null);
         return this;
     }
 
@@ -241,17 +241,17 @@ public class WorkItem implements Serializable {
         this.project = project;
     }
 
-    public WorkItem getParentWorkItem() {
-        return parentWorkItem;
+    public WorkItem getWorkItem() {
+        return workItem;
     }
 
-    public WorkItem parentWorkItem(WorkItem workItem) {
-        this.parentWorkItem = workItem;
+    public WorkItem workItem(WorkItem workItem) {
+        this.workItem = workItem;
         return this;
     }
 
-    public void setParentWorkItem(WorkItem workItem) {
-        this.parentWorkItem = workItem;
+    public void setWorkItem(WorkItem workItem) {
+        this.workItem = workItem;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

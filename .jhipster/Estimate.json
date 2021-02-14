@@ -100,7 +100,7 @@
     {
       "relationshipType": "one-to-many",
       "otherEntityName": "estimate",
-      "otherEntityRelationshipName": "rootEstimate",
+      "otherEntityRelationshipName": "estimate",
       "relationshipName": "versions"
     },
     {
@@ -113,7 +113,7 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "estimate",
       "otherEntityRelationshipName": "versions",
-      "relationshipName": "rootEstimate",
+      "relationshipName": "estimate",
       "otherEntityField": "id"
     }
   ],

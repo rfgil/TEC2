@@ -64,10 +64,10 @@ enum WorkItemType {
 }
 
 relationship OneToMany {
-    Estimate{versions} to Estimate{rootEstimate},
-    Estimate{workItems} to WorkItem{estimate},
-    Project{workItems} to WorkItem{project}
-    WorkItem{childWorkItems} to WorkItem{parentWorkItem}
+    Estimate{versions} to Estimate,
+    Estimate{workItems} to WorkItem,
+    Project{workItems} to WorkItem,
+    WorkItem{childWorkItems} to WorkItem
 }
 
 relationship OneToOne {

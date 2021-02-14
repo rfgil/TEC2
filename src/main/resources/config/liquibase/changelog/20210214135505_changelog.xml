@@ -1,0 +1,84 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="rafael (generated)" id="1613310910164-2">
+        <createTable tableName="estimate">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="estimatePK"/>
+            </column>
+            <column name="commission" type="numeric(21, 2)"/>
+            <column name="customer_id" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date" type="date"/>
+            <column name="delivery_datetime" type="date"/>
+            <column name="delivery_method_id" type="INTEGER"/>
+            <column name="discount" type="numeric(21, 2)"/>
+            <column name="expiration_date" type="date"/>
+            <column name="maturity" type="INTEGER"/>
+            <column name="notes" type="VARCHAR(255)"/>
+            <column name="number" type="INTEGER"/>
+            <column name="profit_margin" type="numeric(21, 2)"/>
+            <column name="reference" type="VARCHAR(255)"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="version" type="INTEGER"/>
+            <column name="estimate_id" type="BIGINT"/>
+            <column name="project_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rafael (generated)" id="1613310910164-3">
+        <createTable tableName="project">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="projectPK"/>
+            </column>
+            <column name="acceptance_date" type="date"/>
+            <column name="close_date" type="date"/>
+            <column name="extra_costs" type="numeric(21, 2)"/>
+            <column name="extra_costs_description" type="VARCHAR(255)"/>
+            <column name="number" type="INTEGER"/>
+            <column name="paid_date" type="date"/>
+            <column name="shipping_date" type="date"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rafael (generated)" id="1613310910164-4">
+        <createTable tableName="work_item">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="work_itemPK"/>
+            </column>
+            <column name="deadline" type="date"/>
+            <column name="estimated_employee_hours" type="INTEGER"/>
+            <column name="estimated_machine_hours" type="INTEGER"/>
+            <column name="quantity" type="INTEGER"/>
+            <column name="reference" type="VARCHAR(255)"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="type" type="VARCHAR(255)"/>
+            <column name="assigned_user_id" type="BIGINT"/>
+            <column name="estimate_id" type="BIGINT"/>
+            <column name="project_id" type="BIGINT"/>
+            <column name="work_item_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="rafael (generated)" id="1613310910164-5">
+        <addUniqueConstraint columnNames="project_id" constraintName="UC_ESTIMATEPROJECT_ID_COL" tableName="estimate"/>
+    </changeSet>
+    <changeSet author="rafael (generated)" id="1613310910164-6">
+        <addUniqueConstraint columnNames="assigned_user_id" constraintName="UC_WORK_ITEMASSIGNED_USER_ID_COL" tableName="work_item"/>
+    </changeSet>
+    <changeSet author="rafael (generated)" id="1613310910164-7">
+        <addForeignKeyConstraint baseColumnNames="project_id" baseTableName="work_item" constraintName="FK2j4hevwcame1qf0qy84yxtx8l" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="project" validate="true"/>
+    </changeSet>
+    <changeSet author="rafael (generated)" id="1613310910164-8">
+        <addForeignKeyConstraint baseColumnNames="work_item_id" baseTableName="work_item" constraintName="FKbqmrxl13dp8nevoi25vjn2axb" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="work_item" validate="true"/>
+    </changeSet>
+    <changeSet author="rafael (generated)" id="1613310910164-9">
+        <addForeignKeyConstraint baseColumnNames="estimate_id" baseTableName="work_item" constraintName="FKjuqg7xsqvv2ht3a0brk5q4msl" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="estimate" validate="true"/>
+    </changeSet>
+    <changeSet author="rafael (generated)" id="1613310910164-10">
+        <addForeignKeyConstraint baseColumnNames="estimate_id" baseTableName="estimate" constraintName="FKnw0iv4wpj2v3jtoiqx19sbpbo" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="estimate" validate="true"/>
+    </changeSet>
+    <changeSet author="rafael (generated)" id="1613310910164-11">
+        <addForeignKeyConstraint baseColumnNames="assigned_user_id" baseTableName="work_item" constraintName="FKp6aublj4ukvgig491rpa1w9uk" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user" validate="true"/>
+    </changeSet>
+    <changeSet author="rafael (generated)" id="1613310910164-12">
+        <addForeignKeyConstraint baseColumnNames="project_id" baseTableName="estimate" constraintName="FKrnbsr138ikyckfmqqkib9pghl" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="project" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

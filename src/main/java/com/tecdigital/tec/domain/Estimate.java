@@ -86,7 +86,7 @@ public class Estimate implements Serializable {
     @JoinColumn(unique = true)
     private Project project;
 
-    @OneToMany(mappedBy = "rootEstimate")
+    @OneToMany(mappedBy = "estimate")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Estimate> versions = new HashSet<>();
 
@@ -96,7 +96,7 @@ public class Estimate implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "versions", allowSetters = true)
-    private Estimate rootEstimate;
+    private Estimate estimate;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -313,13 +313,13 @@ public class Estimate implements Serializable {
 
     public Estimate addVersions(Estimate estimate) {
         this.versions.add(estimate);
-        estimate.setRootEstimate(this);
+        estimate.setEstimate(this);
         return this;
     }
 
     public Estimate removeVersions(Estimate estimate) {
         this.versions.remove(estimate);
-        estimate.setRootEstimate(null);
+        estimate.setEstimate(null);
         return this;
     }
 
@@ -352,17 +352,17 @@ public class Estimate implements Serializable {
         this.workItems = workItems;
     }
 
-    public Estimate getRootEstimate() {
-        return rootEstimate;
+    public Estimate getEstimate() {
+        return estimate;
     }
 
-    public Estimate rootEstimate(Estimate estimate) {
-        this.rootEstimate = estimate;
+    public Estimate estimate(Estimate estimate) {
+        this.estimate = estimate;
         return this;
     }
 
-    public void setRootEstimate(Estimate estimate) {
-        this.rootEstimate = estimate;
+    public void setEstimate(Estimate estimate) {
+        this.estimate = estimate;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
